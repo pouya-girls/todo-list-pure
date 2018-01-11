@@ -6,8 +6,8 @@ $connection = new mysqli(
         'todo_list'
 );
 
-if(isset($_GET['todo'])) {
-    $todo = $_GET['todo'];
+if(isset($_POST['todo'])) {
+    $todo = $_POST['todo'];
 
     $connection->query("insert into todos (name) values ('"
         . $todo
@@ -53,7 +53,7 @@ if(isset($_GET['done'])) {
     ?>
 </ul>
 
-<form>
+<form method="post">
     <input name="todo" placeholder="New item">
     <button>Add</button>
 </form>
